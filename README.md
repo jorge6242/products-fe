@@ -1,4 +1,4 @@
-## Products Example.
+## Frontend Products Example.
 
 ### Tecnologies
 
