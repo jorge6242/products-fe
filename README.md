@@ -1,15 +1,13 @@
-#Products Example.
+##Products Example.
 
 ## Tecnologies
 
-### ReactJS
-
-### Material UI
-
-### Redux
+- ReactJS
+- Material UI
+- Redux
 
 ## Installation
 
-## `yarn`
+- `yarn`
 
-## `yarn start`
+- `yarn start`
