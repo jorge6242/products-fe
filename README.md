@@ -1,12 +1,12 @@
-##Products Example.
+## Products Example.
 
-## Tecnologies
+### Tecnologies
 
 - ReactJS
 - Material UI
 - Redux
 
-## Installation
+### Installation
 
 - `yarn`
 
