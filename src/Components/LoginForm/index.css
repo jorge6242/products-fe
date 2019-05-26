@@ -12,12 +12,3 @@
       margin: 1%;
       cursor: pointer;
       padding: 1%; }
-    .login-form .login-form__field div input {
-      padding: 12px 20px;
-      margin: 8px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box; }
-    .login-form .login-form__field div .required {
-      border: 1px solid red; }

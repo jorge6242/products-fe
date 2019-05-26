@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import { Field, reduxForm } from "redux-form";
+import TextField from '@material-ui/core/TextField';
 import "./index.sass";
 
 const validate = values => {
@@ -15,18 +16,20 @@ const validate = values => {
   return errors;
 };
 
-const renderField = ({
+const renderTextField = ({
   input,
   label,
-  type,
-  meta: { touched, error, warning }
+  meta: { touched, error },
+  ...custom
 }) => (
-  <div>
-    <input {...input} placeholder={label} type={type} className={touched && error ? 'required' : ''} />
-    {touched &&
-      ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-  </div>
-);
+  <TextField
+    hintText={label}
+    label={label}
+    error={touched && error}
+    {...input}
+    {...custom}
+  />
+)
 
 const LoginForm = props => {
   const { handleSubmit, pristine, reset, submitting, handleForm } = props;
@@ -37,7 +40,7 @@ const LoginForm = props => {
           <Field
             name="email"
             type="name"
-            component={renderField}
+            component={renderTextField}
             label="Email"
           />
         </Grid>
@@ -45,7 +48,7 @@ const LoginForm = props => {
           <Field
             name="password"
             type="password"
-            component={renderField}
+            component={renderTextField}
             label="Password"
           />
         </Grid>
