@@ -1,6 +1,6 @@
-.reminder-form .reminder-form__field {
+.login-form .login-form__field {
   margin: 5%; }
-  .reminder-form .reminder-form__field button {
+  .login-form .login-form__field button {
     border-radius: 20px;
     background-color: #3f51b5;
     border: transparent;

@@ -28,9 +28,9 @@ const renderField = ({
 const LoginForm = props => {
   const { handleSubmit, pristine, reset, submitting, handleForm } = props;
   return (
-    <Grid container spacing={0} className="reminder-form">
+    <Grid container spacing={0} className="login-form">
       <form onSubmit={handleSubmit(handleForm)}>
-        <Grid item xs={12} className="reminder-form__field">
+        <Grid item xs={12} className="login-form__field">
           <Field
             name="email"
             type="name"
@@ -38,7 +38,7 @@ const LoginForm = props => {
             label="Email"
           />
         </Grid>
-        <Grid item xs={12} className="reminder-form__field">
+        <Grid item xs={12} className="login-form__field">
           <Field
             name="password"
             type="password"
@@ -46,7 +46,7 @@ const LoginForm = props => {
             label="Password"
           />
         </Grid>
-        <Grid item xs={12} className="reminder-form__field">
+        <Grid item xs={12} className="login-form__field">
           <button type="submit" disabled={submitting}>
             {" "}
             Login

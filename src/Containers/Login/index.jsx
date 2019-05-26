@@ -18,16 +18,12 @@ class Login extends Component {
 
   render() {
     return (
-      <Grid container spacing={0} className="reminder-container">
-        <Grid container spacing={0}>
-          <Grid item xs={12} className="reminder-container__title">
-            Login
-          </Grid>
+      <Grid container spacing={0} className="login-container">
+        <Grid item xs={12} className="login-container__title">
+          Login
         </Grid>
-        <Grid container spacing={0}>
-          <Grid item xs={12}>
-            <LoginForm handleForm={this.handleForm} />
-          </Grid>
+        <Grid item xs={12} className="login-container__form">
+          <LoginForm handleForm={this.handleForm} />
         </Grid>
       </Grid>
     );
