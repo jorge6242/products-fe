@@ -12,7 +12,7 @@ export const ACTIONS = {
 export const getAll = () => async dispatch => {
     try {
         const {
-            data,
+            data: { data },
             status
         } = await Product.getAll();
         let getAllProducts = [];
@@ -43,13 +43,18 @@ export const create = body => async dispatch => {
             status
         } = await Product.create(body);
         let createProductResponse = [];
-        console.log('status ', status);
         if (status === 200 || status === 201) {
             createProductResponse = {
                 data,
                 status
             };
-            console.log('createProductResponse ', data);
+            snackBarStatus({
+                payload: {
+                    title: 'Product Created!',
+                    type: 'success',
+                    enable: true,
+                },
+            })(dispatch);
         }
         return createProductResponse;
     } catch (error) {
@@ -67,7 +72,7 @@ export const create = body => async dispatch => {
 export const get = id => async dispatch => {
     try {
         const {
-            data,
+            data: { data },
             status
         } = await Product.get(id);
         let productResponse = [];
@@ -103,7 +108,13 @@ export const update = body => async dispatch => {
                 data,
                 status
             };
-            console.log('data ', data);
+            snackBarStatus({
+                payload: {
+                    title: 'Product Updated!',
+                    type: 'success',
+                    enable: true,
+                },
+            })(dispatch);
         }
         return productResponse;
     } catch (error) {
@@ -130,7 +141,13 @@ export const remove = id => async dispatch => {
                 data,
                 status
             };
-            console.log('data remove ', data);
+            snackBarStatus({
+                payload: {
+                    title: 'Product Removed!',
+                    type: 'success',
+                    enable: true,
+                },
+            })(dispatch);
         }
         return productResponse;
     } catch (error) {
