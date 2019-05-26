@@ -63,8 +63,8 @@ class Dashboard extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {products.map(product => (
-                <ProductList product={product} handleEdit={this.handleEdit} />
+              {products.map((product, index) => (
+                <ProductList key={index} product={product} handleEdit={this.handleEdit} />
               ))}
             </TableBody>
           </Table>
