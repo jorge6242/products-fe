@@ -54,7 +54,7 @@ const LoginForm = props => {
           />
         </Grid>
         <Grid item xs={12} className="login-form__field">
-          <Button disabled={submitting} variant="contained" color="primary" >
+          <Button type="submit" disabled={submitting} variant="contained" color="primary" >
             Login
           </Button>
           <Button type="button" disabled={pristine || submitting} variant="contained" color="secondary" onClick={reset} >
