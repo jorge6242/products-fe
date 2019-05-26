@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
+import Button from '@material-ui/core/Button';
 import { Field, reduxForm } from "redux-form";
 import TextField from '@material-ui/core/TextField';
 import "./index.sass";
@@ -53,17 +54,12 @@ const LoginForm = props => {
           />
         </Grid>
         <Grid item xs={12} className="login-form__field">
-          <button type="submit" disabled={submitting}>
-            {" "}
+          <Button disabled={submitting} variant="contained" color="primary" >
             Login
-          </button>
-          <button
-            type="button"
-            disabled={pristine || submitting}
-            onClick={reset}
-          >
+          </Button>
+          <Button type="button" disabled={pristine || submitting} variant="contained" color="secondary" onClick={reset} >
             Clear Values
-          </button>
+          </Button>
         </Grid>
       </form>
     </Grid>
