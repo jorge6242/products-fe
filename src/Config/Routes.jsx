@@ -1,22 +1,33 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MainLayout from '../Hoc/MainLayout';
-import Dashboard from '../Containers/Dashboard';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import MainLayout from "../Hoc/MainLayout";
+import Login from "../Containers/Login";
+import Dashboard from "../Containers/Dashboard";
+import SnackBar from '../Components/SnackBar';
+import { setupInterceptors } from '../Actions/authActions';
 
 class Routes extends Component {
-  componentDidMount() {
-    console.log('assadasdasddsdsadssddsd');
+  componentWillMount() {
+    this.props.setupInterceptors();
   }
   render() {
     return (
       <Router>
         <MainLayout>
           <Switch>
-            <Route path="/" exact component={Dashboard} />
+            <Route path="/" exact component={Login} />
+            <Route path="/dashboard" exact component={Dashboard} />
           </Switch>
+          <SnackBar />
         </MainLayout>
       </Router>
     );
   }
 }
-export default Routes;
+
+const mD = {
+  setupInterceptors,
+};
+
+export default connect(null,mD)(Routes);

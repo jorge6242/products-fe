@@ -1,30 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
-import { withStyles } from "@material-ui/core/styles";
 import { Field, reduxForm } from "redux-form";
 import "./index.sass";
-
-const styles = theme => ({
-  margin: {
-    margin: theme.spacing.unit
-  },
-  red: {
-    margin: theme.spacing.unit,
-    background: "#F44336"
-  },
-  blue: {
-    margin: theme.spacing.unit,
-    background: "#2196F3"
-  },
-  green: {
-    margin: theme.spacing.unit,
-    background: "#8BC34A"
-  },
-  extendedIcon: {
-    marginRight: theme.spacing.unit
-  }
-});
 
 const validate = values => {
   const errors = {};
@@ -92,4 +70,4 @@ const CustomProductForm = reduxForm({
   enableReinitialize: true
 })(ProductForm);
 
-export default withStyles(styles)(connect(mS)(CustomProductForm));
+export default connect(mS)(CustomProductForm);

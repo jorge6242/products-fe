@@ -14,7 +14,7 @@ import snackBarStatus from "../../Actions/snackbarActions";
 
 const styles1 = theme => ({
   success: {
-    backgroundColor: "#9a66bf"
+    backgroundColor: "#26A65B"
   },
   error: {
     backgroundColor: theme.palette.error.dark

@@ -10,11 +10,13 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
+import Button from '@material-ui/core/Button';
 import Modal from "../../Components/Modal";
 import { updateModal } from "../../Actions/modalActions";
 import { getAll, get } from "../../Actions/productActions";
 import ProductList from "../../Components/ProductList";
 import Product from "../Product";
+import { logout } from '../../Actions/loginActions';
 import "./index.sass";
 
 const styles = theme => ({
@@ -29,6 +31,7 @@ const styles = theme => ({
 });
 
 class Dashboard extends Component {
+  
   componentDidMount() {
     this.props.getAll();
   }
@@ -41,6 +44,10 @@ class Dashboard extends Component {
     this.props.get(id);
     this.props.updateModal({ payload: { status: true, element: <Product /> } });
   };
+
+  handleLogout = () => {
+    this.props.logout();
+  }
 
   render() {
     const { classes, products } = this.props;
@@ -62,6 +69,16 @@ class Dashboard extends Component {
             </TableBody>
           </Table>
         </Paper>
+        <Grid 
+          item
+          xs={12}
+          className="dashboard__logout"
+          onClick={this.handleLogout}
+        >
+        <Button variant="contained" color="primary" className={classes.button}>
+          Logout
+        </Button>
+        </Grid>
         <Grid
           item
           xs={12}
@@ -85,7 +102,8 @@ const mS = ({ productReducer: { products } }) => ({
 const mD = {
   updateModal,
   getAll,
-  get
+  get,
+  logout,
 };
 
 export default connect(
