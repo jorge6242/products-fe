@@ -9,6 +9,9 @@ const validate = values => {
   if (!values.email) {
     errors.email = "Required";
   }
+  if (!values.password) {
+    errors.password = "Required";
+  }
   return errors;
 };
 
@@ -19,7 +22,7 @@ const renderField = ({
   meta: { touched, error, warning }
 }) => (
   <div>
-    <input {...input} placeholder={label} type={type} />
+    <input {...input} placeholder={label} type={type} className={touched && error ? 'required' : ''} />
     {touched &&
       ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
   </div>
