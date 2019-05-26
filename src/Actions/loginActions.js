@@ -2,7 +2,7 @@ import Auth from '../Api/Auth';
 import snackBarStatus from './snackbarActions';
 
 export const ACTIONS = {
-    LOGIN: 'login/login',
+  LOGIN: 'login/login',
 };
 
 export const login = body => async dispatch => {
@@ -17,11 +17,7 @@ export const login = body => async dispatch => {
                 data,
                 status
             };
-            const {
-                success: {
-                    token
-                }
-            } = data;
+            const { token } = data;
             localStorage.setItem('token', token);
         }
         return authResponse;
@@ -36,3 +32,8 @@ export const login = body => async dispatch => {
         return error;
     }
 };
+
+export const logout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+}
